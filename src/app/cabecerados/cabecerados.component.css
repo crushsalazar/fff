@@ -1,0 +1,29 @@
+/* Font Awesome Icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');/* Reset margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+  /* Header Styles */
+  
+  /* Header Styles */
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2.5%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #000000; /* Color de respaldo */  
+          /* Opcional: centra la imagen */  
+    padding: 6.5px 10px;                /* Ajusta el padding según necesites */  
+    color: #ffffff;                     /* Color del texto */  
+    z-index: 1000;                      /* Para que el header se muestre encima */  
+  }
+  
+  

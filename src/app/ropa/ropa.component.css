@@ -1,0 +1,593 @@
+/* Reset y estilos básicos */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+.menu {
+  border: 2px solid #000000;
+  border-radius: 8px;
+  display: flex;
+  gap: 20px;
+  box-shadow: #000000;
+
+}
+
+.menu button {
+  justify-content: center;
+  background: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.menu button:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.menu button.active {
+  border-radius: 5px;
+  background-color: #000000 !important;
+  /* Color de fondo azul */
+  color: #ffffff !important;
+  /* Color del texto en blanco */
+}
+
+/* Posicionar el ícono del carrito */
+.cart-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.cart-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+#cartCount {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+/* Notificación temporal */
+.notification {
+  position: fixed;
+  top: 350px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 300;
+  font-size: 1rem;
+}
+
+/* Contenedor y filtros */
+.container {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filters select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Productos */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.product-card p {
+  font-weight: bold;
+}
+
+.product-card .product-desc {
+  font-weight: normal;
+}
+
+.product-card span {
+  font-weight: normal;
+}
+
+.quantity-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.quantity-controls button {
+  padding: 0.3rem 0.6rem;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #eee;
+  border-radius: 4px;
+}
+
+.add-to-cart {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.3s;
+  font-weight: 500;
+}
+
+.add-to-cart:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* Modal general */
+.modal {
+  /* display: none;  Oculto por defecto, ya lo controla *ngIf */
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  width: 90%;
+  top: 50px;
+  max-width: 600px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Modal de producto: Imágenes en slider horizontal */
+.modal-images {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.modal-images img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  flex-shrink: 0;
+  touch-action: pan-x;
+}
+
+/* Modal del carrito: estilo de items */
+#cartItems .cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+}
+
+#cartItems .cart-item p {
+  margin: 0;
+  flex: 1;
+}
+
+/* El botón de eliminar aparece al frente (a la izquierda) */
+.remove-item {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  margin-right: 10px;
+}
+
+/* Estilo para el botón de WhatsApp */
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebe57;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Header: aumentamos el padding para mayor grosor */
+header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  /* Se incrementa el padding */
+  position:  relative;
+  top: 0;
+  z-index: 100;
+}
+
+/* Botón hamburguesa oculto en pantallas grandes */
+.hamburger-menu {
+  display: none;
+}
+
+/* Ícono del carrito, ahora se posiciona relativo al header */
+/* Estilos para el ícono del carrito */
+.cart-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Estilos para el contador del carrito (badge) */
+.cart-icon span {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+.cart-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+/* En pantallas pequeñas */
+/* En pantallas pequeñas */
+@media (max-width: 600px) {
+  .hamburger-menu {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 150;
+  }
+
+  /* Estilos para la imagen del menú */
+  .hamburger-menu img {
+    width: 30px;
+    /* Ajusta el tamaño según tus necesidades */
+    height: 30px;
+    cursor: pointer;
+  }
+
+
+  /* El menú se oculta por defecto y se muestra cuando se agrega la clase "active-menu" */
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    /* Justo debajo del header */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 140;
+  }
+
+  .menu.active-menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+}
+
+.pagination button {
+  background-color: #f3f6fd;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 8px 16px;
+  margin: 0 5px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #97acd3;
+  color: #fff;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  color: #333;
+  margin: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el avatar */
+.avatar {
+  width: 50px;
+  /* Tamaño fijo */
+  height: 50px;
+  /* Tamaño fijo */
+  border-radius: 50%;
+  /* Hace la imagen circular */
+  object-fit: cover;
+  /* Ajusta la imagen para que cubra el espacio sin deformarse */
+  margin-right: 10px;
+  /* Espacio entre la imagen y el texto */
+}
+
+/* Estilos adicionales para los botones del menú */
+.menu button {
+  display: flex;
+  align-items: center;
+  /* Alinea la imagen y el texto verticalmente */
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.menu button.active {
+  background-color: #e0e0e0;
+  /* Estilo para el botón activo */
+}
+
+
+
+
+
+
+
+.footer {
+  background-color: #f8f8f8;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 220px;
+  margin: 20px 10px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #000;
+}
+
+.security-patch {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #777;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  margin-top: 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.more-link {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.more-link:hover {
+  color: #000;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-column {
+    margin: 20px 0;
+    text-align: center;
+  }
+}
+
+
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366; /* Color de WhatsApp */
+  color: #fff;
+  border-radius: 50%; /* Botón perfectamente redondo */
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E; /* Cambio de color al pasar el mouse */
+}
+
+/* Ajuste para centrar el ícono */
+.fab.fa-whatsapp {
+  margin-top: 0;
+}

@@ -1,0 +1,411 @@
+/* base style */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  color: #ccc;
+  font-weight: 300;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+figure {
+  margin: auto;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  background: white;
+  margin-bottom: 300px;
+}
+
+.content article {
+  padding: 100px 0;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
+
+.content article p {
+  margin-top: 20px;
+}
+
+/* Paralax */
+.bird-box {
+  position: relative;
+  height: 600px;
+  background: url("https://raw.githubusercontent.com/DevTips/Parallax-on-the-Web-DevTips-/master/images/bird-bg.jpg") top center no-repeat;
+  background-size: cover; /* Ahora cubre toda la pantalla horizontalmente */
+  background-attachment: fixed;
+  overflow: hidden;
+  z-index: 3;
+  width: 100%; /* Asegura que el contenedor ocupe toda la anchura */
+}
+
+
+.logo {
+  height: 200px;
+  /* Aumenta la altura */
+  width: 100%;
+  background: url("https://i.postimg.cc/fRJ1r8X3/Whats-App-Image-2025-03-14-at-11-12-28-PM.png") center no-repeat;
+  background-size: contain;
+  /* Mantiene la imagen completa sin recortar */
+  position: absolute;
+  top: 5%;
+
+}
+
+.fore-bird {
+  height: 733px;
+  width: 960px;
+  background: url("https://raw.githubusercontent.com/DevTips/Parallax-on-the-Web-DevTips-/master/images/fore-bird.png") right bottom no-repeat;
+  position: absolute;
+  left: 50%;
+  margin-left: -480px;
+  top: 380px;
+  /*   background-color: rgba(0,0,0,0.4); */
+}
+
+.back-bird {
+  width: 960px;
+  height: 298px;
+  background: url("https://github.com/DevTips/Parallax-on-the-Web-DevTips-/blob/master/images/back-bird.png?raw=true") top left no-repeat;
+  /*   background-color: rgba(0,0,0,0.4); */
+  position: absolute;
+  left: 50%;
+  margin-left: -480px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Para pantallas más pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+
+
+  .fore-bird {
+    width: 960px;
+    height: 733px;
+    background: url(https://raw.githubusercontent.com/DevTips/Parallax-on-the-Web-DevTips-/master/images/fore-bird.png) no-repeat;
+    background-position: right bottom;
+    position: absolute;
+    left: 0%;
+    margin-left: -510px;
+    top: 380px;
+  }
+}
+
+
+/* Model Grid */
+.clothes-pics {
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+img {
+  display: block;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+}
+
+
+figure {
+  margin-bottom: 20px;
+  position: relative;
+  opacity: 0;
+
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+figure.is-showing {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+figure:hover>figcaption {
+  left: 0;
+}
+
+figure:hover>img {
+  transform: scale(1.2);
+}
+
+figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: -100%;
+  background: #000;
+  color: white;
+  padding: 2px 8px;
+  font-size: 11px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+
+.clothes-pics {
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.clothes-pics figure {
+  margin-bottom: 0; /* se usa el gap del grid */
+}
+
+.clothes-pics figure img {
+  width: 100%;       /* la imagen ocupa el ancho completo de la celda */
+  max-width: none;   /* elimina restricciones para que se ajuste al grid */
+  height: auto;
+}
+
+.clothes-pics figcaption {
+  bottom: 5px;
+  padding: 2px 6px;
+  font-size: 10px;
+}
+
+.clothes-pics figure:hover img {
+  transform: scale(1.05); /* menor zoom en dispositivos móviles */
+}
+
+
+
+
+
+
+
+/* Estilos para dispositivos móviles: dos columnas y tamaños reducidos */
+@media only screen and (max-width: 768px) {
+  .clothes-pics {
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .clothes-pics figure {
+    margin-bottom: 0; /* se usa el gap del grid */
+  }
+  
+  .clothes-pics figure img {
+    width: 100%;       /* la imagen ocupa el ancho completo de la celda */
+    max-width: none;   /* elimina restricciones para que se ajuste al grid */
+    height: auto;
+  }
+  
+  .clothes-pics figcaption {
+    bottom: 5px;
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+  
+  .clothes-pics figure:hover img {
+    transform: scale(1.05); /* menor zoom en dispositivos móviles */
+  }
+}
+
+
+
+
+
+
+/* Large Window */
+.large-window {
+  height: 640px;
+  background: url("https://github.com/DevTips/Parallax-on-the-Web-DevTips-/blob/master/images/model1.jpg?raw=true");
+  background-position: center top;
+  background-attachment: fixed;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.window-tint {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.promo-text {
+  color: white;
+  font-size: 50px;
+  font-weight: 100;
+  line-height: 1.2;
+}
+
+.promo-text strong {
+  display: block;
+  font-size: 30px;
+}
+
+.promo-text span {
+  font-weight: 300;
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.window-cta {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.window-cta:hover {
+  background: white;
+  color: black;
+  text-decoration: none;
+}
+
+/* Posts */
+.blog-posts {
+  margin-top: 100px;
+}
+
+.post {
+  border: 1px solid #e1e1e1;
+  padding: 20px 20px;
+  background: #fff;
+  position: relative;
+}
+
+.post-1 {
+  transform: translate(0px, 20px);
+}
+
+.post-2 {
+  z-index: 2;
+}
+
+.post-3 {
+  transform: translate(-100px, 20px);
+}
+
+.footer {
+  background-color: #f8f8f8;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 220px;
+  margin: 20px 10px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #000;
+}
+
+.security-patch {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #777;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  margin-top: 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.more-link {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.more-link:hover {
+  color: #000;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-column {
+    margin: 20px 0;
+    text-align: center;
+  }
+}

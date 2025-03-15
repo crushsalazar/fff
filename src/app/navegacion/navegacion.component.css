@@ -1,0 +1,128 @@
+/* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* (Opcional) Estilos globales para el body, también pueden ir en styles.css */
+body {
+  box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.5);
+  margin-top: 29.5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-family: "Montserrat", "Helvetica", "Open Sans", "Arial", sans-serif !important;
+  font-size: 13px !important;
+}
+
+/* Contenedor general del dashboard */
+.dashboard {
+  display: flex;
+  flex-direction: column; /* Menú arriba, contenido debajo */
+  height: 100vh;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  
+ 
+}
+
+/* Barra de navegación superior */
+.nav-primary {
+  width: 100%;
+  background: #fdf6fa;
+  display: flex;
+  justify-content: center;
+  
+}
+
+/* Lista de navegación horizontal */
+.nav-primary ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* Estilo para los enlaces del menú */
+.nav-primary a {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px;
+  transition: background 0.4s ease-out, color 0.4s ease-out;
+  white-space: nowrap;
+}
+
+/* Hover para los enlaces */
+.nav-primary a:hover {
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+  
+
+}
+
+/* Estilo para el ícono del menú */
+.nav-primary a img.menu-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+
+/* ============================
+   Estilos para dispositivos móviles
+   ============================ */
+@media (max-width: 768px) {
+  .nav-primary ul {
+    overflow-x: auto;              /* Permite el scroll horizontal */
+    -webkit-overflow-scrolling: touch; /* Suaviza el scroll en iOS */
+    scrollbar-width: none;         /* Oculta la barra en Firefox */
+  }
+  .nav-primary ul::-webkit-scrollbar {
+    display: none;                 /* Oculta la barra en Chrome, Safari y Opera */
+  }
+  /* Evitar que los ítems se colapsen y asegurar que se muestren en línea */
+  .nav-primary li {
+    flex: 0 0 auto;
+    margin: 0 5px;
+  }
+  
+  /* (Opcional) Scroll Snap para una experiencia tipo carrusel */
+  .nav-primary ul {
+    scroll-snap-type: x mandatory;
+  }
+  .nav-primary li {
+    scroll-snap-align: start;
+  }
+}
+
+
+
+
+
+/* Resto de estilos ya definidos ... */
+
+/* Estilo para el menú activo */
+.seleccionado a {
+  background-color: #000000; /* Color de fondo para indicar que está activo */
+  color: #ffffff;            /* Texto en blanco para contraste */
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Ejemplo de estilo para los íconos (ya existentes) */
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+
